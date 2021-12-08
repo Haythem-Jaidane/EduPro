@@ -5,13 +5,15 @@
         private $Nom=null;
         private $Quantite=null;
         private $Link=null;
+        private $Id_commande=null;
 
-        function __construct($Id, $Prix, $Quantite,$Link,$Nom){
+        function __construct($Id, $Prix, $Quantite,$Link,$Nom,$Id_commande){
             $this->Id=$Id;
             $this->Prix=$Prix;
             $this->Quantite=$Quantite;
             $this->Link=$Link;
             $this->Nom=$Nom;
+            $this->Id_commande=$Id_commande;
         }
         function getId(){
             return $this->Id;
@@ -28,6 +30,9 @@
         function getNom(){
             return $this->Nom;
         }
+        function getId_commande(){
+            return $this->Id_commande;
+        }
         function setId(string $Id){
             $this->Id=$Id;
         }
@@ -43,28 +48,30 @@
         function setNom(string $Nom){
             $this->Nom=$Nom;
         }
-       
+        function setId_commande($Id_commande){
+            $this->Id_commande=$Id_commande;
+        }
     }
 
-    class Pannier{
-        private $Numbre_Produit=null;
-        private $Prix=null;
+    class Commande{
+        private $Id_commande=null;
+        private $Id_utlisateur=null;
 
-        function __construct($Numbre_Produit, $Prix, $Quantite){
-            $this->Numbre_Produit=$Numbre_Produit;
-            $this->Prix=$Prix;
+        function __construct($Id_commande, $Id_utlisateur){
+            $this->Id_commande=$Id_commande;
+            $this->Id_utlisateur=$Id_utlisateur;
         }
-        function getNumbreProduit(){
-            return $this->Numbre_Produit;
+        function getId_utlisateur(){
+            return $this->Id_utlisateur;
         }
-        function getPrix(){
-            return $this->Prix;
+        function getId_commande(){
+            return $this->Id_commande;
         }
-        function setNumbreProduit(string $Numbre_Produit){
-            $this->Numbre_Produit=$Numbre_Produit;
+        function setId_utlisateur(string $Id_utlisateur){
+            $this->Id_utlisateur=$Id_utlisateur;
         }
-        function setPrix(string $Prix){
-            $this->Prix=$Prix;
+        function setId_commande(string $Id_commande){
+            $this->Id_commande=$Id_commande;
         }
        
     }

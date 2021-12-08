@@ -1,5 +1,4 @@
 <?php
-    function Ajouter(){
     include_once '../Model/Panier.php';
     include_once '../Controller/PanierC.php';
 
@@ -27,18 +26,21 @@
             $Item = new Item(
                 $_POST['Id'],
                 $_POST['Prix'],
-                $_POST['Nom'],
                 $_POST['Quantite'],
-                $_POST['Link']
+                $_POST['Link'],
+                $_POST['Nom'],
+                4
             );
+            echo "test";
             $ItemC->ajouterItem($Item);
+            echo "test";
             echo "done";
-            header('Location:afficherPanier.php');
+            header('Location:tables.php');
         }
         else
             $error = "Missing information";
     }
-}
+
 
     
 ?>
@@ -54,7 +56,7 @@
         <hr>
         
         <div id="error">
-            <?php //echo $error; ?>
+            <?php echo $error; ?>
         </div>
         
         <form action="" method="POST">
@@ -63,14 +65,14 @@
                     <td>
                         <label for="ID">ID:</label>
                     </td>
-                    <td><input type="number" name="ID" id="ID" maxlength="20"></td>
+                    <td><input type="number" name="Id" id="Id" maxlength="20"></td>
                 </tr>
                 <tr>
                     <td>
                         <label for="Nom">Nom:
                         </label>
                     </td>
-                    <td><input type="text" name="nom" id="nom"></td>
+                    <td><input type="text" name="Nom" id="Nom"></td>
                 </tr>
                 <tr>
                     <td>
@@ -97,7 +99,7 @@
                 <tr>
                     <td></td>
                     <td>
-                
+                        <input type='submit' value='Ajouter' >  
                     </td>
                     <td>
                         <input type="reset" value="Annuler" >

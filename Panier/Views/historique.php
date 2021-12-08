@@ -4,32 +4,9 @@
   include "../Controller/PanierC.php";
 
   $Produit = new ItemC();
+  $commande = new CommandeC();
 
-  if (
-    isset($_GET["opp"]) &&
-    isset($_GET["i"])
-) {
-
-  $h=$Produit->recupererItem($_GET["i"]);
-
-  $Item = new Item($h["ID"],$h["Prix"],$h["Quantite"],$h["image_link"],$h["Nom"],$h["id_commande"]);
-
-
-  if($_GET["opp"]=="-"){
-    $Produit->Sub($Item);
-  }
-
-  if($_GET["opp"]=="+"){
-    echo "tt";
-    /*$Produit->Add($Item);
-    echo "tt";*/
-  }
-
-  if($_GET["opp"]=="/"){
-    $Produit->supprimerItem($_GET["i"]);
-    echo "tt";
-  }
-}
+  $Id_utilisateur=20;
 
 ?>
 
@@ -126,33 +103,24 @@ https://templatemo.com/tm-569-edu-meeting
     <div class="container">
       <div style="background-color: beige;border-radius: 5%;text-align: center;margin-top:20px;margin-bottom: 50px;padding: 3%;">
         <h1 style="margin:5%">Formation et Document</h1>
-        <?php
-          $resultat=$Produit->afficherItem();
-          echo"<table style='margin:5%'>";
-          echo"<tr>";
-          echo"<th></th>";
-          echo"<th>Nom de l'article</th>";
-          echo"<th>Quantité</th>";
-          echo"<th>Rrix D'un Article</th>";
-          echo"<th>Prix Total</th>";
-          echo"</tr>";
-          foreach($resultat as $i){
-            echo"<tr style='width: 80%;margin:10%;'>";
-            echo"<td style='width: 25%;'><img src=".$i['image_link']."></td>";
-            echo"<td>".$i['Nom']."</td>";
-            echo"<td><a href='panier.php?opp=-&i=".$i['ID']."'>-</a>".$i['Quantite']."<a href='panier.php?opp=+&i=".$i['ID']."'>+</a></td>";
-            echo"<td>".$i['Prix']."</td>";
-            echo"<td>".$i['Quantite']*$i['Prix']."</td>";
-            echo"<td><a href='panier.php?opp=/&i=".$i['ID']."'>Supprimer</a></td>";
-            echo"</tr>";
-          }
-          echo"</table>";
-        ?>
-        <div>
-          <a href="payment.html">Finaliser Votre Commande</a>
-          <a href="produit.php">Poursuivre Votre apprentissage</a>
-        </div>
-        <a href="historique.php">Historique de commande</a>
+          <?php
+                
+                $resultat=$commande->afficherCommandeUtilisateur($Id_utilisateur);
+                echo"<table style='margin:5;width:100%'>";
+                echo"<tr>";
+                echo"<th>Id Commande</th>";
+                echo"<th>Id Utlisateur</th>";
+                echo"<th>Montant</th>";
+                echo"</tr>";
+                foreach($resultat as $i){
+                  echo"<tr style='width: 80%;margin:10%;'>";
+                  echo"<td>".$i['id_commande']."</td>";
+                  echo"<td>".$i['id_utlisateur']."</td>";
+                  echo"<td>400</td>";
+                  echo"</tr>";
+                }
+                echo"</table>";
+              ?>
       </div>  
     </div>
     <div class="footer">
