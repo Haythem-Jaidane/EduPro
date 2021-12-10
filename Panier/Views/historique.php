@@ -106,6 +106,7 @@ https://templatemo.com/tm-569-edu-meeting
           <?php
                 
                 $resultat=$commande->afficherCommandeUtilisateur($Id_utilisateur);
+                $montant=$commande->CalculerMontant(4)["SOMME"];
                 echo"<table style='margin:5;width:100%'>";
                 echo"<tr>";
                 echo"<th>Id Commande</th>";
@@ -116,7 +117,7 @@ https://templatemo.com/tm-569-edu-meeting
                   echo"<tr style='width: 80%;margin:10%;'>";
                   echo"<td>".$i['id_commande']."</td>";
                   echo"<td>".$i['id_utlisateur']."</td>";
-                  echo"<td>400</td>";
+                  echo"<td>".$montant."</td>";
                   echo"</tr>";
                 }
                 echo"</table>";

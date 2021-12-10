@@ -263,19 +263,17 @@
     
                 $Produit = new CommandeC();
 
-                $resultat=$Produit->afficherCommandeAdmin();
-                $montant=$Produit->CalculerMontant(4)["SOMME"];
+                $resultat=$Produit->DetailCommande(4);
                 echo"<table style='margin:5%'>";
                 echo"<tr>";
-                echo"<th>Id Commande</th>";
-                echo"<th>Id Utlisateur</th>";
-                echo"<th>Montant</th>";
+                echo"<th>Nom</th>";
+                echo"<th>Prix</th>";
+                echo"<th>Quantite</th>";
                 echo"</tr>";
                 foreach($resultat as $i){
-                  echo"<td>".$i['id_commande']."</td>";
-                  echo"<td>".$i['id_utlisateur']."</td>";
-                  echo"<td>".$montant."</td>";
-                  echo"<td><a href='detail.php'>detail</a></td>";
+                  echo"<td>".$i['Nom']."</td>";
+                  echo"<td>".$i['Prix']."</td>";
+                  echo"<td>".$i['Quantite']."</td>";
                   echo"<tr>";
                 }
                 echo"</table>";

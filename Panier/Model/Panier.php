@@ -56,6 +56,8 @@
     class Commande{
         private $Id_commande=null;
         private $Id_utlisateur=null;
+        private $date=null;
+        private $activeactive=null;
 
         function __construct($Id_commande, $Id_utlisateur){
             $this->Id_commande=$Id_commande;
@@ -67,11 +69,23 @@
         function getId_commande(){
             return $this->Id_commande;
         }
-        function setId_utlisateur(string $Id_utlisateur){
+        function getdate(){
+            return $this->date;
+        }
+        function getactive(){
+            return $this->active;
+        }
+        function setId_utlisateur(int $Id_utlisateur){
             $this->Id_utlisateur=$Id_utlisateur;
         }
         function setId_commande(string $Id_commande){
             $this->Id_commande=$Id_commande;
+        }
+        function setdate(date $date){
+            $this->date=$date;
+        }
+        function setactive(int $active){
+            $this->active=$active;
         }
        
     }

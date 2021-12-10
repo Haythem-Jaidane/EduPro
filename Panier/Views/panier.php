@@ -4,6 +4,7 @@
   include "../Controller/PanierC.php";
 
   $Produit = new ItemC();
+  $commande= new CommandeC();
 
   if (
     isset($_GET["opp"]) &&
@@ -15,14 +16,12 @@
   $Item = new Item($h["ID"],$h["Prix"],$h["Quantite"],$h["image_link"],$h["Nom"],$h["id_commande"]);
 
 
-  if($_GET["opp"]=="-"){
+  if($_GET["opp"]=="sub"){
     $Produit->Sub($Item);
   }
 
-  if($_GET["opp"]=="+"){
-    echo "tt";
-    /*$Produit->Add($Item);
-    echo "tt";*/
+  if($_GET["opp"]=="add"){
+    $Produit->Add($Item);
   }
 
   if($_GET["opp"]=="/"){
@@ -127,7 +126,7 @@ https://templatemo.com/tm-569-edu-meeting
       <div style="background-color: beige;border-radius: 5%;text-align: center;margin-top:20px;margin-bottom: 50px;padding: 3%;">
         <h1 style="margin:5%">Formation et Document</h1>
         <?php
-          $resultat=$Produit->afficherItem();
+          $resultat=$Produit->afficherItem($commande->IdNonActive(20)["id_commande"]);
           echo"<table style='margin:5%'>";
           echo"<tr>";
           echo"<th></th>";
@@ -140,7 +139,7 @@ https://templatemo.com/tm-569-edu-meeting
             echo"<tr style='width: 80%;margin:10%;'>";
             echo"<td style='width: 25%;'><img src=".$i['image_link']."></td>";
             echo"<td>".$i['Nom']."</td>";
-            echo"<td><a href='panier.php?opp=-&i=".$i['ID']."'>-</a>".$i['Quantite']."<a href='panier.php?opp=+&i=".$i['ID']."'>+</a></td>";
+            echo"<td><a href='panier.php?opp=sub&i=".$i['ID']."'>-</a>".$i['Quantite']."<a href='panier.php?opp=add&i=".$i['ID']."'>+</a></td>";
             echo"<td>".$i['Prix']."</td>";
             echo"<td>".$i['Quantite']*$i['Prix']."</td>";
             echo"<td><a href='panier.php?opp=/&i=".$i['ID']."'>Supprimer</a></td>";

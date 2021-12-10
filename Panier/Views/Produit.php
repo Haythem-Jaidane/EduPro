@@ -13,6 +13,7 @@
 
     // create an instance of the controller
     $ItemC = new ItemC();
+    $commande= new CommandeC();
 
     if (
 
@@ -27,7 +28,7 @@
                 $_POST['Quantite'],
                 $Link,
                 $nom,
-                4
+                $commande->IdNonActive(20)["id_commande"]
             );
             $ItemC->ajouterItem($Item);
             header('Location:panier.php');

@@ -1,6 +1,14 @@
 <?php
+include "../Controller/PanierC.php";
 
+$Produit = new CommandeC();
+
+$id=$Produit->IdNonActive(20)["id_commande"];
+
+$Produit->finaliser_commande($id);
+$Produit->AjouterCommande(20);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,5 +20,6 @@
 </head>
 <body>
     <p>Thank you for buying some think</p>
+    <?php echo'<a href="facture.php?id='.$id.'">Voir la Facture</a>';?>
 </body>
 </html>
