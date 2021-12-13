@@ -9,7 +9,7 @@ class Config {
     {
         if (!isset(self::$pdo)) {
             try {
-                self::$pdo = new PDO('mysql:host=localhost;dbname=database', 'root', '',
+                self::$pdo = new PDO('mysql:host=localhost;dbname=dhafer', 'root', '',
                     [
                         //lancer une exception PDOException en cas d’erreur.
 

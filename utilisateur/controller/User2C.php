@@ -6,7 +6,7 @@ class UserC
 {
     function ajouterUser($User)
 	{
-		$sql = "INSERT INTO Utilisateur (nom, prenom, email, password) 
+		$sql = "INSERT INTO utilisateur (nom, prenom, email, password) 
 			VALUES (:nom,:prenom,:email, :password)";
 		$db = config::getConnexion();
 		try {
@@ -25,7 +25,7 @@ class UserC
     function afficherUser()
 	{
 
-		$sql = "SELECT * FROM Utilisateur";
+		$sql = "SELECT * FROM utilisateur";
 		$db = config::getConnexion();
 		try {
 			$liste = $db->query($sql);
@@ -39,7 +39,7 @@ class UserC
 function recherche($rech)
 {
 
-	$sql = "SELECT * FROM Utilisateur where nom like '%$rech%' OR prenom like '%$rech%' OR email like '%$rech%' ";
+	$sql = "SELECT * FROM utilisateur where nom like '%$rech%' OR prenom like '%$rech%' OR email like '%$rech%' ";
 	$db = config::getConnexion();
 	try {
 		$liste = $db->query($sql);
@@ -52,7 +52,7 @@ function recherche($rech)
 	function Tri()
 	{
 
-		$sql = "SELECT * FROM Utilisateur ORDER BY nom";
+		$sql = "SELECT * FROM utilisateur ORDER BY nom";
 		$db = config::getConnexion();
 		try {
 			$liste = $db->query($sql);
@@ -64,7 +64,7 @@ function recherche($rech)
 
     function supprimerUser($id)
 	{
-		$sql = "DELETE FROM Utilisateur WHERE id= :id";
+		$sql = "DELETE FROM utilisateur WHERE id= :id";
 		$db = config::getConnexion();
 		$req = $db->prepare($sql);
 		$req->bindValue(':id', $id);
@@ -80,7 +80,7 @@ function recherche($rech)
 		try {
 			$db = config::getConnexion();
 			$query = $db->prepare(
-				'UPDATE Utilisateur SET 
+				'UPDATE utilisateur SET 
 						nom = :nom, 
 						prenom = :prenom,
 						email = :email,
@@ -102,7 +102,7 @@ function recherche($rech)
 
 	function recupererUser($id)
 	{
-        $sql="SELECT * from Utilisateur where id=$id";
+        $sql="SELECT * from utilisateur where id=$id";
         $db = config::getConnexion();
         try{
             $query=$db->prepare($sql);
@@ -120,7 +120,7 @@ function recherche($rech)
 		try {
 			$db = config::getConnexion();
 			$query = $db->prepare(
-				'UPDATE Utilisateur SET                           
+				'UPDATE utilisateur SET                           
 						verified = :verified
 					WHERE id = :id'
 			);

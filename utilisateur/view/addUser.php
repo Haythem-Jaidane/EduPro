@@ -12,7 +12,7 @@ if (
     $user = new User($_POST['firstname'],$_POST['lastname'],$pass,$_POST['email']);
     $userC = new UserC();
     $email = $_POST['email'];
-    $sql="SELECT * FROM Utilisateur WHERE  email=:email";
+    $sql="SELECT * FROM utilisateur WHERE  email=:email";
     $db= config::getConnexion();
     $query= $db->prepare($sql);
     $query->execute([
@@ -49,7 +49,7 @@ $mail->addAddress($email);     // Add a recipient
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);   
-$sqlid = "SELECT * from Utilisateur where email=:email"; 
+$sqlid = "SELECT * from utilisateur where email=:email"; 
             $db = config::getConnexion();
             $queryid  = $db->prepare($sqlid);
             $queryid->execute([

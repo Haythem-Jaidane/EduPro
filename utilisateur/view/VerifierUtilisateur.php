@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     echo 'verified';
     $_SESSION['verified']=1;
     $_SESSION['verif']=1;
-    header('Location: index.php');
+    header('Location: indexfront.php');
 }
 //header('Location: index.php');
 

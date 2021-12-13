@@ -108,7 +108,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="sign-in.html">
+          <a class="nav-link text-white " href="sign-in.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">login</i>
             </div>
@@ -116,7 +116,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="sign-up.html">
+          <a class="nav-link text-white " href="sign-up.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
@@ -151,7 +151,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+              <a href="sign-in.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
